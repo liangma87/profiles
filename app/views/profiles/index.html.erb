@@ -1,1 +1,13 @@
-<h1>What's your profile</h1>
+<h1>What's in you profile</h1>
+<% if @stocks %>
+<% @stocks.each do |stock| %>
+  <h2> <%= stock.ticker %> </h2>
+<% end %>
+<% else %>
+  <h2> Add a stock below!!</h2>
+<% end %>
+<br /><br />
+<%= simple_form_for @stock do |f| %>
+  <%= f.input :ticker %>
+  <%= f.button :submit %>
+<% end %>
